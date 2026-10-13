@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Corn Blocker",
+  "version": "1.0.0",
+  "description": "Corn Blocker keeps your browsing wholesome: blocks adult sites and searches, in every search engine and the address bar.",
+  "minimum_chrome_version": "110",
+  "permissions": ["webNavigation", "storage", "unlimitedStorage", "alarms"],
+  "host_permissions": ["https://raw.githubusercontent.com/*"],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "options_ui": { "page": "options.html", "open_in_tab": true },
+  "action": { "default_title": "Corn Blocker settings" },
+  "icons": { "16": "icons/16.png", "48": "icons/48.png", "128": "icons/128.png" }
+}

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Corn Blocker – Settings</title>
+<style>
+:root{--bg:#fff8dc;--fg:#3b2f0b;--card:#fffdf2;--muted:#7a6a2f;--bd:#e6d37a;--accent:#15803d}
+@media(prefers-color-scheme:dark){:root{--bg:#1d2412;--fg:#f7f1c9;--card:#262f17;--muted:#cbbf7d;--bd:#4b5a2a;--accent:#4ade80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:720px;margin:0 auto;padding:24px}
+section{background:var(--card);border:2px solid var(--bd);border-radius:14px;padding:18px 20px;margin:14px 0}
+h1{font-size:22px}h2{font-size:16px;margin:0 0 8px}
+label.row{display:flex;gap:8px;align-items:flex-start;margin:6px 0}
+textarea{width:100%;min-height:90px;box-sizing:border-box;background:transparent;color:inherit;border:1px solid var(--bd);border-radius:8px;padding:8px;font:13px monospace}
+button{font:inherit;padding:8px 16px;border-radius:8px;border:0;background:var(--accent);color:#fff;font-weight:600;cursor:pointer;margin-right:8px}
+.muted{color:var(--muted);font-size:13px}
+</style></head><body><main>
+<h1><img src="icons/48.png" width="32" height="32" alt="" style="vertical-align:middle"> Corn Blocker</h1>
+<section>
+  <label class="row"><input type="checkbox" id="enabled"><span><b>Blocking enabled</b></span></label>
+  <label class="row"><input type="checkbox" id="scanUrls"><span><b>Scan URL paths &amp; hostnames for keywords</b><br><span class="muted">Catches typed URLs like example.com/free-porn. Search-query blocking is always on.</span></span></label>
+  <label class="row"><input type="checkbox" id="strict"><span><b>Strict mode</b><br><span class="muted">Also blocks broader words (e.g. "sex", "lingerie", "onlyfans"). More false positives.</span></span></label>
+</section>
+<section>
+  <h2>Domain list</h2>
+  <div class="muted" id="info">Loading…</div><br>
+  <button id="update">Update list now</button>
+</section>
+<section><h2>Extra blocked keywords</h2><div class="muted">One per line. Matches whole words/phrases.</div><textarea id="customKeywords"></textarea></section>
+<section><h2>Extra blocked domains</h2><textarea id="customDomains" placeholder="example.com"></textarea></section>
+<section><h2>Allowed domains (never blocked)</h2><div class="muted">Use for false positives.</div><textarea id="allowDomains"></textarea></section>
+<button id="save">Save</button> <span id="saved" class="muted"></span>
+<script src="options.js"></script>
+</main></body></html>

@@ -1,0 +1,22 @@
+name: Release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint Firefox build
+        run: npx --yes web-ext lint -s firefox
+      - name: Zip extensions
+        run: |
+          (cd chrome && zip -qr ../corn-blocker-chrome.zip .)
+          (cd firefox && zip -qr ../corn-blocker-firefox.zip .)
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            corn-blocker-chrome.zip
+            corn-blocker-firefox.zip
