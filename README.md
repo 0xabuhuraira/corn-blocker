@@ -21,7 +21,7 @@ Keyword matching is whole-word and multilingual (English, Russian, Bengali, and 
 ### Chrome / Edge / Brave (from GitHub)
 1. Download `corn-blocker-chrome.zip` from [Releases](../../releases) and unzip it (or clone this repo).
 2. Open `chrome://extensions` (or `edge://extensions`), turn on **Developer mode**.
-3. Click **Load unpacked** and choose the unzipped `chrome` folder.
+3. Click **Load unpacked** and choose the folder you unzipped (the one containing `manifest.json`). If you cloned the repo instead, choose the `chrome` folder. Keep that folder in place: Chrome loads the extension from it.
 4. For Incognito: **Details → Allow in Incognito**.
 
 > Chrome shows a "disable developer mode extensions" notice on some systems after a restart. This is a Chrome limitation for extensions not installed from the Web Store. You can publish it to the Chrome Web Store (one-time $5 fee) to avoid it.
